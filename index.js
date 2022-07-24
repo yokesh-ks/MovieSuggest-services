@@ -29,6 +29,8 @@ const movieModel = require("./movies");
 app.get("/", async (req, res) => {
   await movieModel
     .find()
+    .skip(20)
+    .limit(10)
     .then((movies) => res.json({ data: movies, total: movies.length }));
 });
 
